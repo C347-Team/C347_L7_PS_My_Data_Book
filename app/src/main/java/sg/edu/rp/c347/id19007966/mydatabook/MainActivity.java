@@ -1,13 +1,18 @@
 package sg.edu.rp.c347.id19007966.mydatabook;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -27,14 +32,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        drawerLayout = findViewById(R.id.draw);
-        drawerList = findViewById(R.id.left_drawer);
+        drawerLayout = findViewById(R.id.drawerLayout);
+        drawerList = findViewById(R.id.drawer);
 
         drawerItems = new String[]{"Bio", "Vaccination", "Anniversary", "About Us"};
         ab = getSupportActionBar();
 
-        aa = new ArrayAdapter<String>(this,
-                R.layout.drawer_list, drawerItems);
+        aa = new MenuArrayAdapter(this,
+                R.layout.row, drawerItems);
         drawerList.setAdapter(aa);
 
         // Set the list's click listener
@@ -57,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction trans = fm.beginTransaction();
-                trans.replace(R.id.content_frame, fragment);
+                trans.replace(R.id.contentFrame, fragment);
                 trans.commit();
 
                 // Highlight the selected item,

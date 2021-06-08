@@ -20,9 +20,9 @@ public class MenuArrayAdapter extends ArrayAdapter {
     private final Context context;
     private final String [] values;
 
-    public MenuArrayAdapter(@NonNull Context context, int resource, Context context1, String[] values) {
+    public MenuArrayAdapter(@NonNull Context context, int resource, String[] values) {
         super(context, resource);
-        this.context = context1;
+        this.context = context;
         this.values = values;
     }
 
