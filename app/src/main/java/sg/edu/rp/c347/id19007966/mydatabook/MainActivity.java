@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private String[] drawerItems;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
-    ArrayAdapter<String> aa;
+    MenuArrayAdapter aa;
     String currentTitle;
     ActionBar ab;
     private ActionBarDrawerToggle drawerToggle;
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         aa = new MenuArrayAdapter(this,
                 R.layout.row, drawerItems);
+
         drawerList.setAdapter(aa);
 
         // Set the list's click listener

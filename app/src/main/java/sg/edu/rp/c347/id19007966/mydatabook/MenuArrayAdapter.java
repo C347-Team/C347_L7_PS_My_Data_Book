@@ -8,11 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class MenuArrayAdapter extends ArrayAdapter {
+public class MenuArrayAdapter extends ArrayAdapter<String> {
 
     ImageView iv;
     TextView tvCategory;
@@ -21,7 +22,7 @@ public class MenuArrayAdapter extends ArrayAdapter {
     private final String [] values;
 
     public MenuArrayAdapter(@NonNull Context context, int resource, String[] values) {
-        super(context, resource);
+        super(context, resource, values);
         this.context = context;
         this.values = values;
     }
