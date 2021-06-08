@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        drawerLayout = findViewById(R.id.drawer_layout);
+        drawerLayout = findViewById(R.id.draw);
         drawerList = findViewById(R.id.left_drawer);
 
         drawerItems = new String[]{"Bio", "Vaccination", "Anniversary", "About Us"};
@@ -44,14 +44,14 @@ public class MainActivity extends AppCompatActivity {
                     position, long arg3) {
 
                 Fragment fragment = null;
-                Intent i = null if (position == 0)
+                if (position == 0)
                     fragment = new BioFragment();
                 else if (position == 1)
                     fragment = new VaccinationFragment();
                 else if (position == 2)
                     fragment = new AnniversaryFragment();
                 else if (position == 3) {
-                    i = new Intent(MainActivity.this, AboutUsActivity.class);
+                    Intent i = new Intent(MainActivity.this, AboutUsActivity.class);
                     startActivity(i);
                 }
 
